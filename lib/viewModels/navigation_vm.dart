@@ -8,9 +8,6 @@ class NavigationViewModel extends ChangeNotifier {
   int get currentPMIndex => _currentPMIndex;
 
 
-  String _searchQuery = '';
-  String get searchQuery => _searchQuery;
-
   void changeHomeIndex(int newIndex) {
     _currentHomeIndex = newIndex;
     notifyListeners();
@@ -21,9 +18,4 @@ class NavigationViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-
-  void updateSearchQuery(String query) {
-    _searchQuery = query;
-    notifyListeners();
-  }
 }

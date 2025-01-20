@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/viewModels/navigation_vm.dart';
 import 'package:flutter_application_1/views/settings_page.dart';
+import 'package:flutter_application_1/views/to_doScreen.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,13 +14,13 @@ class HomeScreen extends StatelessWidget {
     Widget getCurrentScreen(int index) {
       switch (index) {
         case 0:
-          return const Placeholder();
+          return  TodoListScreen();
         case 1:
           return const Settings();
         
 
         default:
-          return const Placeholder();
+          return TodoListScreen();
       }
     }
     return Scaffold(

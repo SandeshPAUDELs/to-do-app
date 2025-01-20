@@ -38,6 +38,7 @@ dependencies:
   provider: ^6.1.2
   device_preview: ^1.2.0
   shared_preferences: ^2.3.5
+  flutter_markdown: ^0.7.5
   
 
 dev_dependencies:

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/styles/colors.dart';
 import 'package:flutter_application_1/viewModels/navigation_vm.dart';
 import 'package:flutter_application_1/viewModels/theme_vm.dart';
+import 'package:flutter_application_1/viewModels/to-do_vm.dart';
 import 'package:flutter_application_1/views/home_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => NavigationViewModel()),
         ChangeNotifierProvider(create: (context) => ThemeViewModel()),
+        ChangeNotifierProvider(create: (context) => TodoViewModel()),
       ],
       child: Consumer(builder: (context, ThemeViewModel themeVM, child) {
         return MaterialApp(

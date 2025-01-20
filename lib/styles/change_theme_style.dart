@@ -9,9 +9,7 @@ class ChangeThemeStyle extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
-
     final themeVM = Provider.of<ThemeViewModel>(context);
-
     return Container(
       color: Theme.of(context).colorScheme.surface,
       padding: EdgeInsets.symmetric(vertical: height * 0.015),
