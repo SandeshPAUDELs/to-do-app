@@ -4,6 +4,7 @@ import 'package:flutter_application_1/styles/app_bar.dart';
 import 'package:flutter_application_1/styles/button_styles.dart';
 import 'package:flutter_application_1/styles/forms_field.dart';
 import 'package:flutter_application_1/viewModels/to-do_vm.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:provider/provider.dart';
 
 class TodoDetailScreen extends StatelessWidget {
@@ -13,6 +14,33 @@ class TodoDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String _markdownData = """
+  #  Markdown Test of my todo app
+  ---
+  This is a simple Markdown test. Provide a text string with Markdown tags
+  to the Markdown widget and it will display the formatted output in a
+  scrollable widget.
+  
+  ## Section 1
+There are altogether  ${Provider.of<TodoViewModel>(context).todos.length} Todo's in this list.
+My title is ${todo.title}
+## Todos List
+
+
+
+  This is a paragraph. *This is a sentence in italics.* **This is a sentence in bold.**
+  
+  
+  ### Subsection A
+ **__I am going to  add the image in markdown__**
+
+
+  
+  ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Google-flutter-logo.svg/512px-Google-flutter-logo.svg.png)
+  ## I think Markdown is same like**flutter-html pacakge**
+
+
+""";
     final _titleController = TextEditingController(text: todo.title);
     final _descriptionController =
         TextEditingController(text: todo.description);
@@ -81,12 +109,13 @@ class TodoDetailScreen extends StatelessWidget {
               color: Theme.of(context).colorScheme.surface,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Text(todo.title),
-                    Text(todo.description),
-                  ],
-                ),
+                child: Markdown(data: _markdownData),
+                // child: Column(
+                //   children: [
+                //     Text(todo.title),
+                //     Text(todo.description),
+                //   ],
+                // ),
               ),
             ),
           ),
