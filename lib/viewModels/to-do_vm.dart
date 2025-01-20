@@ -4,8 +4,11 @@ import 'package:flutter_application_1/models/todo_models.dart';
 class TodoViewModel extends ChangeNotifier {
   List<TodoModel> _todos = [];
   String _searchQuery = '';
-// search garera list ma dekhauna
+// search garera list ma dekhauna provider ma data caina bhane data xaina dekhauxa
   List<TodoModel> get todos {
+    if(_todos.isEmpty){
+      return [];
+    }
     if (_searchQuery.isEmpty) {
       return _todos;
     } else {
@@ -13,6 +16,17 @@ class TodoViewModel extends ChangeNotifier {
           .where((todo) =>
               todo.title.toLowerCase().contains(_searchQuery.toLowerCase()))
           .toList();
+    }
+  }
+ // to do xa ki xaina chaeck garne
+  bool get hasTodos => _todos.isNotEmpty;
+
+  bool get hasSearchResults {
+    if (_searchQuery.isEmpty) {
+      return true; 
+    } else {
+      return _todos.any((todo) =>
+          todo.title.toLowerCase().contains(_searchQuery.toLowerCase()));
     }
   }
 
